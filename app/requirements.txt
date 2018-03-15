@@ -1,0 +1,2 @@
+pyEDFlib
+numpy
