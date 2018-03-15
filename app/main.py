@@ -1,11 +1,30 @@
 import pyedflib
 import numpy
 
-edf_file = pyedflib.EdfReader("../SC4001E0-PSG.edf")    # dać wybór
-number_of_signals = edf_file.signals_in_file
-signals_labels = edf_file.getSignalLabels()
+class Signal():
+    def __init__(self, label, samples=None, frequency=None, attr=None):
+        # can add personal info
+        self.label = label
+        self.data = numpy.asarray(samples)
+        if attr is None:
+            self.attr = {}
+        else:
+            self.attr = attr
 
-signal_bufs_list = []
-for i in numpy.arange(number_of_signals):
-    signal_bufs_list.append(edf_file.readSignal(i))
-    print(signal_bufs_list[i].shape)
+class EdfFile():
+    def __init__(self, path):
+        # check whether the .edf file or not
+        self.file = pyedflib.EdfReader(path)
+        self.number_of_signal = self.file.signals_in_file
+        self.signals_list = []
+        for i in numpy.arange(self.number_of_signal):
+            self.signals_list.append(   \
+                Signal(self.file.getLabel(i), self.file.readSignal(i),  \
+                       self.file.getSampleFrequency(i)))
+    def print_labels(self):
+        for signal in self.signals_list:
+            print(signal.label)
+
+edf_file = EdfFile("../SC4001E0-PSG.edf")
+edf_file.print_labels()
+print(edf_file.signals_list[1].data)
