@@ -1,2 +1,4 @@
 pyEDFlib
 numpy
+wfdb
+PyWavelets
