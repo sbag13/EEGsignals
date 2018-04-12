@@ -1,4 +1,4 @@
-from numpy import arange
+import numpy as np
 from Signal import Signal
 import pyedflib
 # import wfdb
@@ -9,7 +9,7 @@ class EdfFile():
         self.file = pyedflib.EdfReader(path)
         self.number_of_signal = self.file.signals_in_file
         self.signals_list = []
-        for i in arange(self.number_of_signal):
+        for i in np.arange(self.number_of_signal):
             self.signals_list.append(   \
                 Signal(self.file.getLabel(i), self.file.readSignal(i),  \
                        self.file.getSampleFrequency(i)))
@@ -18,3 +18,22 @@ class EdfFile():
     def print_labels(self):
         for signal in self.signals_list:
             print(signal.label)
+    def createOutput(self, epochsCount):
+        self.stagesMap = {'Sleep stage W' : 0, \
+                          'Sleep stage 1' : 1, \
+                          'Sleep stage 2' : 2, \
+                          'Sleep stage 3' : 3, \
+                          'Sleep stage 4' : 4, \
+                          'Sleep stage R' : 5, \
+                          'Sleep stage ?' : 6 }
+        output = []
+        currentEpoch = 0
+        currentX = 0
+        currentStageIndex = 0
+        while currentEpoch < epochsCount:
+            if currentX >= self.annotations[0][currentStageIndex + 1]:
+                currentStageIndex = currentStageIndex + 1
+            output.append(self.stagesMap[self.annotations[2][currentStageIndex]])
+            currentX = currentX + 30
+            currentEpoch = currentEpoch + 1
+        return output
