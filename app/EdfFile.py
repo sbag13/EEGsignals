@@ -3,6 +3,30 @@ from Signal import Signal
 import pyedflib
 # import wfdb
 
+def zero():
+    return [1,0,0,0,0,0,0]
+def one():
+    return [0,1,0,0,0,0,0]
+def two():
+    return [0,0,1,0,0,0,0]
+def three():
+    return [0,0,0,1,0,0,0]
+def four():
+    return [0,0,0,0,1,0,0]
+def five():
+    return [0,0,0,0,0,1,0]
+def six():
+    return [0,0,0,0,0,0,1]
+
+stageList = {0 : zero,
+           1 : one,
+           2 : two,
+           3 : three,
+           4 : four,
+           5 : five,
+           6 : six,
+}
+
 class EdfFile():
     def __init__(self, path):
         # check whether the .edf file or not
@@ -33,7 +57,8 @@ class EdfFile():
         while currentEpoch < epochsCount:
             if currentX >= self.annotations[0][currentStageIndex + 1]:
                 currentStageIndex = currentStageIndex + 1
-            output.append(self.stagesMap[self.annotations[2][currentStageIndex]])
+            stageNumber = self.stagesMap[self.annotations[2][currentStageIndex]]
+            output.append(stageList[stageNumber]())
             currentX = currentX + 30
             currentEpoch = currentEpoch + 1
         return output
