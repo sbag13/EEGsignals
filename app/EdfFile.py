@@ -1,7 +1,6 @@
 import numpy as np
 from Signal import Signal
 import pyedflib
-# import wfdb
 
 def zero():
     return [1,0,0,0,0,0,0]
