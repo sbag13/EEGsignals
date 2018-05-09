@@ -7,25 +7,6 @@ def nonlin(x, deriv=False):
         return x*(1-x)
     return 1/(1+np.exp(-x))
 
-def createInputMatrix(epochs, verbose=False):
-    inputMatrix = []
-    size = len(epochs)
-    current = 0
-    start = time.time()
-    for e in epochs:
-        current += 1
-        if(verbose==True):
-            print("%d / %d" % (current , size))
-        e.extractFeatures()
-        inputMatrix.append(list(e.features.values()))
-    stop = time.time()
-    print("features extracted in: %f sec" % (stop - start))
-    return np.array(inputMatrix)
-
-def whatStage(output):
-    for o in output:
-        print(np.argmax(o))
-
 def learn(inputMatrix, output):
     np.random.seed(1)
 
@@ -34,7 +15,7 @@ def learn(inputMatrix, output):
     
     times = 20000
     for j in range(times):
-        # print("%d / %d" % (j , times))
+        print("%d / %d" % (j , times))
 
         l0 = inputMatrix
         l1 = nonlin(np.dot(l0,syn0))
@@ -59,6 +40,33 @@ def learn(inputMatrix, output):
     
         syn1 += np.dot(l1.T, l2_delta)
         syn0 += np.dot(l0.T, l1_delta)
-        
+
     return l2
+
+def compareInOut(outputs, expected):
+    difference = expected - outputs
+    return np.sum(np.abs(difference))
+
+def accuracy(output, expected):
+    hit = 0
+    for a, b in zip(output, expected):
+        if np.argmax(a) == np.argmax(b):
+            hit += 1
+    print("%d / %d" % (hit, len(output)))
+    # print(np.sum(np.abs(expected[1350] - output[1350])))
+
+def createInput(epochs, verbose=False):
+    inputMatrix = []
+    size = len(epochs)
+    current = 0
+    start = time.time()
+    for e in epochs:
+        current += 1
+        if(verbose==True):
+            print("%d / %d" % (current , size))
+        e.extractFeatures()
+        inputMatrix.append(list(e.features.values()))
+    stop = time.time()
+    print("features extracted in: %f sec" % (stop - start))
+    return np.array(inputMatrix)
 
