@@ -72,4 +72,12 @@ class EdfFile():
             inputMatrix.append(list(e.features.values()))
         stop = time.time()
         print("features extracted in: %f sec" % (stop - start))
-        return np.array(inputMatrix)
+
+        normalized = np.array(inputMatrix).T
+        for feature in normalized:
+            min = np.min(feature)
+            max = np.max(feature)
+            for idx in range(len(feature)):
+                feature[idx] = (feature[idx] - min)/(max - min) - 0.5
+
+        return normalized.T

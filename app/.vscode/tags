@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+EdfFile	../EdfFile.py	/^class EdfFile():$/;"	kind:class	line:24
+EdfFile	../NN.py	/^from EdfFile import EdfFile$/;"	kind:namespace	line:1
+EdfFile	../prepare.py	/^import EdfFile$/;"	kind:namespace	line:2
+EdfFile.py	../EdfFile.py	1;"	kind:file	line:1
+Epoch	../Epoch.py	/^class Epoch():$/;"	kind:class	line:5
+Epoch	../Signal.py	/^from Epoch import Epoch$/;"	kind:namespace	line:2
+Epoch.py	../Epoch.py	1;"	kind:file	line:1
+NN	../prepare.py	/^import NN$/;"	kind:namespace	line:3
+NN.py	../NN.py	1;"	kind:file	line:1
+Signal	../EdfFile.py	/^from Signal import Signal$/;"	kind:namespace	line:2
+Signal	../Signal.py	/^class Signal():$/;"	kind:class	line:4
+Signal	../prepare.py	/^import Signal$/;"	kind:namespace	line:4
+Signal.py	../Signal.py	1;"	kind:file	line:1
+__init__	../EdfFile.py	/^    def __init__(self, path):$/;"	kind:member	line:25
+__init__	../Epoch.py	/^    def __init__(self, data):$/;"	kind:member	line:6
+__init__	../Signal.py	/^    def __init__(self, label, samples, frequency, attr=None):$/;"	kind:member	line:5
+accuracy	../NN.py	/^def accuracy(output, expected):$/;"	kind:function	line:80
+batch_size	../tfLearning.py	/^batch_size = 100$/;"	kind:variable	line:8
+compareInOut	../NN.py	/^def compareInOut(outputs, expected):$/;"	kind:function	line:76
+countStages	../NN.py	/^def countStages(output):$/;"	kind:function	line:88
+createInput	../EdfFile.py	/^    def createInput(self, epochs, verbose=False):$/;"	kind:member	line:62
+createOutput	../EdfFile.py	/^    def createOutput(self, epochs):$/;"	kind:member	line:41
+edf_file	../prepare.py	/^edf_file = EdfFile.EdfFile("..\/SC4001E0-PSG.edf")$/;"	kind:variable	line:6
+energy	../Epoch.py	/^    def energy(self, data):$/;"	kind:member	line:58
+epochs	../prepare.py	/^epochs = edf_file.signals_list[1].getEpochs()$/;"	kind:variable	line:7
+epochs_tf	../tfLearning.py	/^epochs_tf = 10$/;"	kind:variable	line:7
+extractFeatures	../Epoch.py	/^    def extractFeatures(self):$/;"	kind:member	line:9
+four	../EdfFile.py	/^def four():$/;"	kind:function	line:14
+getAllCoeffs	../Epoch.py	/^    def getAllCoeffs(self):$/;"	kind:member	line:31
+getEnergy	../Epoch.py	/^    def getEnergy(self, keys):$/;"	kind:member	line:55
+getEpochs	../Signal.py	/^    def getEpochs(self):$/;"	kind:member	line:14
+inputMatrix	../prepare.py	/^inputMatrix = edf_file.createInput(epochs, True)$/;"	kind:variable	line:15
+learn	../NN.py	/^def learn(inputMatrix, output, times = 2000):$/;"	kind:function	line:9
+learning_rate	../tfLearning.py	/^learning_rate = 0.5$/;"	kind:variable	line:6
+nonlin	../NN.py	/^def nonlin(x, deriv=False):$/;"	kind:function	line:4
+np	../EdfFile.py	/^import numpy as np$/;"	kind:namespace	line:1
+np	../Epoch.py	/^import numpy as np$/;"	kind:namespace	line:1
+np	../NN.py	/^import numpy as np$/;"	kind:namespace	line:2
+np	../Signal.py	/^import numpy as np$/;"	kind:namespace	line:1
+np	../prepare.py	/^import numpy as np$/;"	kind:namespace	line:1
+one	../EdfFile.py	/^def one():$/;"	kind:function	line:8
+outputMatrix	../prepare.py	/^outputMatrix = edf_file.createOutput(epochs)$/;"	kind:variable	line:8
+prepare.py	../prepare.py	1;"	kind:file	line:1
+print_labels	../EdfFile.py	/^    def print_labels(self):$/;"	kind:member	line:37
+pyedflib	../EdfFile.py	/^import pyedflib$/;"	kind:namespace	line:3
+pywt	../Epoch.py	/^import pywt$/;"	kind:namespace	line:2
+stageList	../EdfFile.py	/^stageList = {0 : zero,$/;"	kind:variable	line:17
+stdev	../Epoch.py	/^from statistics import stdev $/;"	kind:namespace	line:3
+tf	../tfLearning.py	/^import tensorflow as tf$/;"	kind:namespace	line:1
+tfLearning.py	../tfLearning.py	1;"	kind:file	line:1
+three	../EdfFile.py	/^def three():$/;"	kind:function	line:12
+time	../EdfFile.py	/^import time$/;"	kind:namespace	line:4
+two	../EdfFile.py	/^def two():$/;"	kind:function	line:10
+x	../tfLearning.py	/^x = tf.placeholder(tf.float64, [None, 12])$/;"	kind:variable	line:11
+y	../tfLearning.py	/^y = tf.placeholder(tf.float64, [None, 4])/;"	kind:variable	line:13
+zero	../EdfFile.py	/^def zero():$/;"	kind:function	line:6

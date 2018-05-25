@@ -13,4 +13,3 @@ for e, o in zip(epochs, outputMatrix):
         outputMatrix.remove(o)
 
 inputMatrix = edf_file.createInput(epochs, True)
-
