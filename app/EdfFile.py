@@ -1,29 +1,24 @@
 import numpy as np
 from Signal import Signal
 import pyedflib
+import time
 
 def zero():
-    return [1,0,0,0,0,0,0]
+    return [1,0,0,0]
 def one():
-    return [0,1,0,0,0,0,0]
+    return [0,1,0,0]
 def two():
-    return [0,0,1,0,0,0,0]
+    return [0,0,1,0]
 def three():
-    return [0,0,0,1,0,0,0]
+    return [0,0,0,1]
 def four():
-    return [0,0,0,0,1,0,0]
-def five():
-    return [0,0,0,0,0,1,0]
-def six():
-    return [0,0,0,0,0,0,1]
+    return [0,0,0,0]
 
 stageList = {0 : zero,
            1 : one,
            2 : two,
            3 : three,
-           4 : four,
-           5 : five,
-           6 : six,
+           4 : four
 }
 
 class EdfFile():
@@ -36,28 +31,45 @@ class EdfFile():
             self.signals_list.append(   \
                 Signal(self.file.getLabel(i), self.file.readSignal(i),  \
                        self.file.getSampleFrequency(i)))
-        self.annotations_file = pyedflib.EdfReader("../SC4001EC-Hypnogram.edf")     # zrobić uniwersalnie
+        self.annotations_file = pyedflib.EdfReader("../SC4001EC-Hypnogram.edf")     #TODO zrobić uniwersalnie
         self.annotations = self.annotations_file.readAnnotations()
+
     def print_labels(self):
         for signal in self.signals_list:
             print(signal.label)
-    def createOutput(self, epochsCount):
+
+    def createOutput(self, epochs):
         self.stagesMap = {'Sleep stage W' : 0, \
                           'Sleep stage 1' : 1, \
                           'Sleep stage 2' : 2, \
                           'Sleep stage 3' : 3, \
-                          'Sleep stage 4' : 4, \
-                          'Sleep stage R' : 5, \
-                          'Sleep stage ?' : 6 }
+                          'Sleep stage 4' : 3, \
+                          'Sleep stage R' : 1, \
+                          'Sleep stage ?' : 4 }
         output = []
         currentEpoch = 0
         currentX = 0
         currentStageIndex = 0
-        while currentEpoch < epochsCount:
+        while currentEpoch < len(epochs):
             if currentX >= self.annotations[0][currentStageIndex + 1]:
                 currentStageIndex = currentStageIndex + 1
             stageNumber = self.stagesMap[self.annotations[2][currentStageIndex]]
             output.append(stageList[stageNumber]())
             currentX = currentX + 30
             currentEpoch = currentEpoch + 1
-        return output
+        return np.array(output)
+
+    def createInput(self, epochs, verbose=False):
+        inputMatrix = []
+        size = len(epochs)
+        current = 0
+        start = time.time()
+        for e in epochs:
+            current += 1
+            if(verbose==True):
+                print("%d / %d" % (current , size))
+            e.extractFeatures()
+            inputMatrix.append(list(e.features.values()))
+        stop = time.time()
+        print("features extracted in: %f sec" % (stop - start))
+        return np.array(inputMatrix)

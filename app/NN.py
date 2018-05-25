@@ -9,29 +9,37 @@ def nonlin(x, deriv=False):
 def learn(inputMatrix, output, times = 2000):
     np.random.seed(1)
 
-    syn0 = 2*np.random.random((12,10)) - 1
-    syn1 = 2*np.random.random((10,8)) - 1
-    syn2 = 2*np.random.random((8,7)) - 1
+    syn0 = 2*np.random.random((12,8)) - 1
+    syn1 = 2*np.random.random((8,4)) - 1
+    # syn2 = 2*np.random.random((8,4)) - 1
 
     for j in range(times):
         # print("%d / %d" % (j , times))
 
-        l0 = np.tanh(inputMatrix)
+        # l0 = np.tanh(inputMatrix)
+        l0 = inputMatrix
         l1 = nonlin(np.dot(l0,syn0))
         l2 = nonlin(np.dot(l1,syn1))
-        l3 = nonlin(np.dot(l2,syn2))
+        # l3 = nonlin(np.dot(l2,syn2))
 
         # how much did we miss the target value?
-        l3_error = output - l3
+        # l3_error = output - l3
+        l2_error = output - l2
         # in what direction is the target value?
         # were we really sure? if so, don't change too much.
-        l3_delta = l3_error * nonlin(l3, deriv=True)
+        # l3_delta = l3_error * nonlin(l3, deriv=True)
+        l2_delta = l2_error * nonlin(l2, deriv=True)
 
-        if (j% (times / 20)) == 0:
-            print ("Error:" + str(np.mean(np.abs(l3_error))))
+        # if (j% (times / 20)) == 0:
+        # if (j% 1) == 0:
+        #     # print(l2_error[1350])
+        #     # print(l2_delta[1350])
+        #     print(syn0)
+        #     print("")
+            # print ("Error:" + str(np.mean(np.abs(l2_error))))
 
-        l2_error = l3_delta.dot(syn2.T)    
-        l2_delta = l2_error * nonlin(l2,deriv=True)
+        # l2_error = l3_delta.dot(syn2.T)    
+        # l2_delta = l2_error * nonlin(l2,deriv=True)
 
         # if (j% 20) == 0:
         #     print("######")
@@ -48,11 +56,22 @@ def learn(inputMatrix, output, times = 2000):
         #     print("######")
         #     print(l1_error[1])
     
-        syn2 += np.dot(l2.T, l3_delta)
+        if (j% 100) == 0:
+            # print(syn1)
+            # print(syn)
+            # print(np.dot(l1.T, l2_delta))
+            # print(l1.T)
+            # print(l2_delta)
+            print(np.dot(l0.T, l1_delta))
+            print("")
+
+        # syn2 += np.dot(l2.T, l3_delta)
         syn1 += np.dot(l1.T, l2_delta)
         syn0 += np.dot(l0.T, l1_delta)
 
-    return l3
+        
+
+    return l2
 
 def compareInOut(outputs, expected):
     difference = expected - outputs
@@ -67,7 +86,7 @@ def accuracy(output, expected):
     # print(np.sum(np.abs(expected[1350] - output[1350])))
 
 def countStages(output):
-    stages = [0,0,0,0,0,0,0]
+    stages = [0,0,0,0]
     for o in output:
         stages[np.argmax(o)] += 1
     print(stages)
