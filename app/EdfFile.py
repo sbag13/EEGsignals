@@ -2,6 +2,7 @@ import numpy as np
 from Signal import Signal
 import pyedflib
 import time
+import sys
 
 def zero():
     return [1,0,0,0]
@@ -22,7 +23,7 @@ stageList = {0 : zero,
 }
 
 class EdfFile():
-    def __init__(self, path):
+    def __init__(self, path, annotations_path):
         # check whether the .edf file or not
         self.file = pyedflib.EdfReader(path)
         self.number_of_signal = self.file.signals_in_file
@@ -31,7 +32,7 @@ class EdfFile():
             self.signals_list.append(   \
                 Signal(self.file.getLabel(i), self.file.readSignal(i),  \
                        self.file.getSampleFrequency(i)))
-        self.annotations_file = pyedflib.EdfReader("../SC4001EC-Hypnogram.edf")     #TODO zrobić uniwersalnie
+        self.annotations_file = pyedflib.EdfReader(annotations_path)
         self.annotations = self.annotations_file.readAnnotations()
 
     def print_labels(self):
@@ -45,7 +46,8 @@ class EdfFile():
                           'Sleep stage 3' : 3, \
                           'Sleep stage 4' : 3, \
                           'Sleep stage R' : 1, \
-                          'Sleep stage ?' : 4 }
+                          'Sleep stage ?' : 4, \
+                          'Movement time' : 4}
         output = []
         currentEpoch = 0
         currentX = 0
@@ -57,7 +59,7 @@ class EdfFile():
             output.append(stageList[stageNumber]())
             currentX = currentX + 30
             currentEpoch = currentEpoch + 1
-        return np.array(output)
+        return output
 
     def createInput(self, epochs, verbose=False):
         inputMatrix = []
@@ -67,11 +69,12 @@ class EdfFile():
         for e in epochs:
             current += 1
             if(verbose==True):
-                print("%d / %d" % (current , size))
+                sys.stdout.write("\r%d / %d   " % (current , size))
+                sys.stdout.flush()
             e.extractFeatures()
             inputMatrix.append(list(e.features.values()))
         stop = time.time()
-        print("features extracted in: %f sec" % (stop - start))
+        print("\nfeatures extracted in: %f sec" % (stop - start))
 
         normalized = np.array(inputMatrix).T
         for feature in normalized:

@@ -20,18 +20,3 @@ class Signal():
             epochs.append(Epoch(self.data[i:j]))
             i = j
         return epochs
-
-# def createInput(epochs, verbose=False):
-#     inputMatrix = []
-#     size = len(epochs)
-#     current = 0
-#     start = time.time()
-#     for e in epochs:
-#         current += 1
-#         if(verbose==True):
-#             print("%d / %d" % (current , size))
-#         e.extractFeatures()
-#         inputMatrix.append(list(e.features.values()))
-#     stop = time.time()
-#     print("features extracted in: %f sec" % (stop - start))
-#     return np.array(inputMatrix)
