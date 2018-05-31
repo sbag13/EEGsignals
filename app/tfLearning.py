@@ -1,9 +1,9 @@
 import tensorflow as tf
-import prepare, sys
+import prepare, sys, time
 
 # Python optimisation variables
 learning_rate = 0.5
-tf_epochs = 5
+tf_epochs = 1
 
 # Neural network parameters
 inputSize = 12
@@ -49,15 +49,14 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float64))
 
 saver = tf.train.Saver()
     
-def startLearning():
-    inputMatrix, outputMatrix = prepare.prepareAllSamples("./training_samples")
-
+def startLearning(inputMatrix, outputMatrix):
     # start the session
     with tf.Session() as sess:
         # initialise the variables
         sess.run(init_op)
         total_samples = int(len(inputMatrix))  
         for epoch in range(tf_epochs):
+            start = time.time()
             avg_cost = 0
             for i in range(total_samples):
                 sys.stdout.write("\r%d / %d   " % (i , total_samples))
@@ -65,9 +64,10 @@ def startLearning():
                 _, c = sess.run([optimiser, cross_entropy], 
                             feed_dict={x: inputMatrix, y: outputMatrix})
                 avg_cost += c
+            stop = time.time()
             avg_cost /= total_samples
-            print("\nEpoch:", (epoch + 1), "cost =", "{:.3f}".format(avg_cost))
-        print(sess.run(accuracy, feed_dict={x: inputMatrix, y: outputMatrix}))
+            print("\nEpoch:", (epoch + 1), "cost =", "{:.3f}".format(avg_cost), "   time: ", (stop - start))
+        print("accuracy: ", sess.run(accuracy, feed_dict={x: inputMatrix, y: outputMatrix}))
         save_path = saver.save(sess, "./model.ckpt")
         print("Model saved in path: %s" % save_path)
     

@@ -53,8 +53,9 @@ class EdfFile():
         currentX = 0
         currentStageIndex = 0
         while currentEpoch < len(epochs):
-            if currentX >= self.annotations[0][currentStageIndex + 1]:
-                currentStageIndex = currentStageIndex + 1
+            if currentStageIndex != len(self.annotations[0]) - 1 :
+                if currentX >= self.annotations[0][currentStageIndex + 1]:
+                    currentStageIndex = currentStageIndex + 1
             stageNumber = self.stagesMap[self.annotations[2][currentStageIndex]]
             output.append(stageList[stageNumber]())
             currentX = currentX + 30
