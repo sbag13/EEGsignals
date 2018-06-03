@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Wst\IeC {\k e}p}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Pozyskanie danych}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Wyekstrahowanie cech z sygna\IeC {\l }u EEG}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Klasyfikacja faz snu w oparciu o sie\IeC {\'c} neuronow\IeC {\k a}}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Podsumowanie}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliografia}{7}

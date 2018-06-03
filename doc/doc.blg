@@ -1,0 +1,15 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'doc.blg'
+[30] biber:313> INFO - === Mon Jun  4, 2018, 00:28:06
+[52] Biber.pm:371> INFO - Reading 'doc.bcf'
+[111] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
+[126] Biber.pm:3976> INFO - Processing section 0
+[138] Biber.pm:4136> INFO - Looking for bibtex format file 'doc.bib' for section 0
+[139] bibtex.pm:1500> INFO - LaTeX decoding ...
+[144] bibtex.pm:1316> INFO - Found BibTeX data source 'doc.bib'
+[174] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[175] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[175] Biber.pm:3804> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[175] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[178] bbl.pm:617> INFO - Writing 'doc.bbl' with encoding 'UTF-8'
+[180] bbl.pm:720> INFO - Output to doc.bbl

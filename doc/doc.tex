@@ -1,0 +1,54 @@
+\documentclass[12pt]{report}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{doc.bib}
+
+\title{\Huge Zastosowania informatyki w medycynie \\[1cm]\Huge Automatyczne rozpoznawanie faz snu na podstawie diagramów EEG}
+\author{Szymon Bagiński \\[1cm]{\small Prowadzący: Dr hab. inż. Robert Burduk}}
+% \author{Szymon Bagiński\thanks{funded by the ShareLaTeX team}}
+\date{Czerwiec 2018}
+
+\begin{document}
+
+    \begin{titlepage}
+        \maketitle
+    \end{titlepage}
+
+    \tableofcontents
+
+    \chapter*{Wstęp}
+    \addcontentsline{toc}{chapter}{Wstęp}
+        Celem projektu było stworzenie programistycznej metody automatycznego rozpoznawania faz snu człowieka na podstawie zapisu sygnału elektroencefalograficznego (\textit{EEG}). Częścią zadania nie było opracowanie metody gromadzenia zapisów ani wykonywanie pomiarów sygnału. Zdecydowano się skorzystać z ogólnodostępnej internetowej bazy danych \cite{}, udostępniającej pliki w formacie \textit{EDF}. % TODO odnoscnik do bazy i do formatu pliku
+
+        Z uwagi na brak wiedzy dziedzinowej, zdecydowano się na zastosowanie sztucznej sieci neuronowej zamiast analitycznego podejścia do problemu. Przy implementacji sieci skorzystano z otwartoźródłowej biblioteki programistycznej \textit{TensorFlow}. Wykorzystano wersję biblioteki wykorzystującą technologię \textit{CUDA}, dzięki czemu skrócono czas uczenia sieci poprzez przeniesienie wielu równoległych obliczeń na kartę graficzną. % TODO odnoscik tensorflow i do CUDA
+
+        Do wykonania skryptów wczytujących i przygotowujących dane, oraz do uczenia maszynowego został użyty język programowania \textit{Python}. Szczególnie przydatne okazały się pakiety:
+        \begin{itemize}
+            \item NumPy - obsługa danych tablicowych,
+            \item PyEDFlib - obsługa plików \textit{EDF},
+            \item PyWavelets - przetwarzania sygnału, Dyskretna Transformata Falkowa,
+            \item TensorFlow - interfejs biblioteki do języka \textit{Python}.
+        \end{itemize}
+
+    \chapter{Pozyskanie danych}
+
+    \chapter{Wyekstrahowanie cech z sygnału EEG}
+
+    \chapter{Klasyfikacja faz snu w oparciu o sieć neuronową}
+
+    \chapter*{Podsumowanie}
+    \addcontentsline{toc}{chapter}{Podsumowanie}
+
+    \cite{dirac}    % TODO do usuniecia
+    \printbibliography[heading=bibintoc, title={Bibliografia}]
+
+\end{document}
