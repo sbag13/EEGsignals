@@ -1,16 +1,19 @@
 \documentclass[12pt]{report}
 
+\usepackage{geometry}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{enumitem}
 
 \usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+    ]{biblatex}
+
 \addbibresource{doc.bib}
+\geometry{legalpaper, margin=1in}
 
 \title{\Huge Zastosowania informatyki w medycynie \\[1cm]\Huge Automatyczne rozpoznawanie faz snu na podstawie diagramów EEG}
 \author{Szymon Bagiński \\[1cm]{\small Prowadzący: Dr hab. inż. Robert Burduk}}
@@ -22,14 +25,14 @@ sorting=ynt
     \begin{titlepage}
         \maketitle
     \end{titlepage}
-
+    
     \tableofcontents
 
     \chapter*{Wstęp}
     \addcontentsline{toc}{chapter}{Wstęp}
-        Celem projektu było stworzenie programistycznej metody automatycznego rozpoznawania faz snu człowieka na podstawie zapisu sygnału elektroencefalograficznego (\textit{EEG}). Częścią zadania nie było opracowanie metody gromadzenia zapisów ani wykonywanie pomiarów sygnału. Zdecydowano się skorzystać z ogólnodostępnej internetowej bazy danych \cite{}, udostępniającej pliki w formacie \textit{EDF}. % TODO odnoscnik do bazy i do formatu pliku
+        Celem projektu było stworzenie programistycznej metody automatycznego rozpoznawania faz snu człowieka na podstawie zapisu sygnału elektroencefalograficznego (\textit{EEG}). Częścią zadania nie było opracowanie metody gromadzenia zapisów ani wykonywanie pomiarów sygnału. Zdecydowano się skorzystać z ogólnodostępnej internetowej bazy danych \cite{}, udostępniającej pliki w formacie \textit{EDF} (European Data Format). % TODO odnoscnik do bazy i do formatu pliku
 
-        Z uwagi na brak wiedzy dziedzinowej, zdecydowano się na zastosowanie sztucznej sieci neuronowej zamiast analitycznego podejścia do problemu. Przy implementacji sieci skorzystano z otwartoźródłowej biblioteki programistycznej \textit{TensorFlow}. Wykorzystano wersję biblioteki wykorzystującą technologię \textit{CUDA}, dzięki czemu skrócono czas uczenia sieci poprzez przeniesienie wielu równoległych obliczeń na kartę graficzną. % TODO odnoscik tensorflow i do CUDA
+        Z uwagi na brak wiedzy dziedzinowej, przy klasyfikacji zdecydowano się na zastosowanie sztucznej sieci neuronowej zamiast analitycznego podejścia do problemu. Przy implementacji sieci skorzystano z otwartoźródłowej biblioteki programistycznej \textit{TensorFlow}. Wykorzystano wersję biblioteki wykorzystującą technologię \textit{CUDA}, dzięki czemu skrócono czas uczenia sieci poprzez przeniesienie wielu równoległych obliczeń na kartę graficzną. % TODO odnoscik tensorflow i do CUDA
 
         Do wykonania skryptów wczytujących i przygotowujących dane, oraz do uczenia maszynowego został użyty język programowania \textit{Python}. Szczególnie przydatne okazały się pakiety:
         \begin{itemize}
@@ -39,7 +42,33 @@ sorting=ynt
             \item TensorFlow - interfejs biblioteki do języka \textit{Python}.
         \end{itemize}
 
+        Wszystkie skrypty, które powstały w ramach projektu można znaleźć w publicznym repozytorium \cite{}. % TODO
+
     \chapter{Pozyskanie danych}
+        Użyte w projekcie dane zostały pobrane ze strony internetowej \cite{}. Wykorzystane zapisy uzyskano w latach 1987-1991 podczas badań nad wpływem wieku na sen. Rekordy pochodzą od osób rasy kaukaskiej w wieku od 25 do 101 lat , które nie przyjmowały żadnych leków związanych ze snem. Sygnały były próbkowane z częstotliwością 100 Hz, a ich klasyfikacja została przeprowadzona przy pomocy reguł Rechtschaffen'a i Kales'a na bazie trzydziestosekundowych segmentów z kanałów \textit{Fpz-Cz} i \textit{Pz-Oz}. Każdy z segmentów został sklasyfikowany jako: przebudzony, nie-REM1, nie-REM2, nie-REM3, REM, niewielka aktywność, poruszenie lub nieokreślony.
+        W tym projekcie został użyty jednak tylko kanał \textit{Pz-Oz}, a rozpoznawanymi fazami były: przebudzony, nie-REM1 + REM, nie-REM2, nie-REM3 + niewielka aktywność.
+        Dokładny opis przebiegu badań znajduje się stronie internetowej bazy danych.
+        
+        Do trenowania sztucznej sieci neuronowej zostało wykorzystanych dwadzieścia siedem ponad dwudziestogodzinnych zapisów \textit{EEG}, a skuteczność klasyfikacji sprawdzono przy pomocy pięciu rekordów nie użytych przy trenowaniu. Lista plików znajduje się w dodatku % TODO appendix
+
+        \section{Wczytywanie danych z pliku EDF}
+            W module \textit{EdfFile.py} została stworzona klasa \textit{EdfFile}, która jako argument konstruktora przyjmuje ścieżkę do pliku z elektroencefalogramem oraz ścieżkę do pliku, w którym znajdują się adnotacje.
+            
+            W funkcji \textit{\_\_init\_\_} zostało wykorzystanych kilka funkcjonalności z biblioteki PyEDFlib. Funkcja \textit{EdfReader} służy do odczytania danych z pliku i zwraca obiekt go reprezentujący, przez który mamy dostęp do właściwości zapisu takich jak między innymi:
+            \begin{itemize}
+                \item liczba sygnałów (kanałów) w pliku,
+                \item lista etykiet sygnałów,
+                \item wartości napięcia dla zczytanych próbek,
+                \item lista częstotliwości sygnałów,
+                \item lista adnotacji do faz snu,
+                \item lista czasów przejść między fazami snu.                
+            \end{itemize}
+            W tym miejscu jest tworzona także kolekcja obiektów typu \textit{Signal}, które są "opakowaniem" na sygnały obecne w pliku.
+
+            W klasie \textit{EdfFile} znajdują się także dwie funkcje odpowiedzialne za przygotowanie danych dla sieci neuronowej. Są to \textit{createOutput} oraz \textit{createInput}. Zwracają one dane odczytane z pliku w postaci macierzy, które następnie w skrypcie \textit{prepare.py} są agregowane. Tutaj także, ma miejsce kontrola poprawności danych i usunięcie błędnych próbek, aby nie umieszczać ich na wejściu sieci.
+
+        \section{Przetwarzanie wstępne}
+                        
 
     \chapter{Wyekstrahowanie cech z sygnału EEG}
 

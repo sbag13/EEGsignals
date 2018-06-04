@@ -4,6 +4,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Pozyskanie danych}{3}
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Wczytywanie danych z pliku EDF}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Przetwarzanie wst\IeC {\k e}pne}{3}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Wyekstrahowanie cech z sygna\IeC {\l }u EEG}{4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Klasyfikacja faz snu w oparciu o sie\IeC {\'c} neuronow\IeC {\k a}}{5}

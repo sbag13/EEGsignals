@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.30)  4 JUN 2018 00:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.30)  4 JUN 2018 23:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -24,6 +24,36 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
 )
 (/usr/share/texmf-dist/tex/latex/polski/polski.sty
 Package: polski 2017/05/04 v1.3.4 Polish language package
@@ -72,8 +102,8 @@ LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 )
 (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
 
 (/usr/share/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -399,12 +429,11 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
 (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\enitkv@toks@=\toks16
 \labelindent=\skip43
-\enit@outerparindent=\dimen103
-\enit@toks=\toks17
+\enit@outerparindent=\dimen111
+\enit@toks=\toks18
 \enit@inbox=\box26
-\enitdp@description=\count88
+\enitdp@description=\count91
 )
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2017/12/19 v3.10 programmable bibliographies (PK/JW/AB)
@@ -423,9 +452,6 @@ Package ifluatex Info: LuaTeX not detected.
 (/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
-(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-)
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -433,11 +459,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count89
-)
-(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks18
+\etb@tempcnta=\count92
 )
 (/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
@@ -454,7 +476,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count90
+\lrq@indent=\count93
 
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -469,49 +491,49 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
-\integerpart=\count91
-\decimalpart=\count92
+\integerpart=\count94
+\decimalpart=\count95
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count93
-\c@listtotal=\count94
-\c@listcount=\count95
-\c@liststart=\count96
-\c@liststop=\count97
-\c@citecount=\count98
-\c@citetotal=\count99
-\c@multicitecount=\count100
-\c@multicitetotal=\count101
-\c@instcount=\count102
-\c@maxnames=\count103
-\c@minnames=\count104
-\c@maxitems=\count105
-\c@minitems=\count106
-\c@citecounter=\count107
-\c@savedcitecounter=\count108
-\c@uniquelist=\count109
-\c@uniquename=\count110
-\c@refsection=\count111
-\c@refsegment=\count112
-\c@maxextratitle=\count113
-\c@maxextratitleyear=\count114
-\c@maxextradate=\count115
-\c@maxextraalpha=\count116
-\c@abbrvpenalty=\count117
-\c@highnamepenalty=\count118
-\c@lownamepenalty=\count119
-\c@maxparens=\count120
-\c@parenlevel=\count121
-\blx@tempcnta=\count122
-\blx@tempcntb=\count123
-\blx@tempcntc=\count124
-\blx@maxsection=\count125
-\blx@maxsegment@0=\count126
-\blx@notetype=\count127
-\blx@parenlevel@text=\count128
-\blx@parenlevel@foot=\count129
-\blx@sectionciteorder@0=\count130
+\c@tabx@nest=\count96
+\c@listtotal=\count97
+\c@listcount=\count98
+\c@liststart=\count99
+\c@liststop=\count100
+\c@citecount=\count101
+\c@citetotal=\count102
+\c@multicitecount=\count103
+\c@multicitetotal=\count104
+\c@instcount=\count105
+\c@maxnames=\count106
+\c@minnames=\count107
+\c@maxitems=\count108
+\c@minitems=\count109
+\c@citecounter=\count110
+\c@savedcitecounter=\count111
+\c@uniquelist=\count112
+\c@uniquename=\count113
+\c@refsection=\count114
+\c@refsegment=\count115
+\c@maxextratitle=\count116
+\c@maxextratitleyear=\count117
+\c@maxextradate=\count118
+\c@maxextraalpha=\count119
+\c@abbrvpenalty=\count120
+\c@highnamepenalty=\count121
+\c@lownamepenalty=\count122
+\c@maxparens=\count123
+\c@parenlevel=\count124
+\blx@tempcnta=\count125
+\blx@tempcntb=\count126
+\blx@tempcntc=\count127
+\blx@maxsection=\count128
+\blx@maxsegment@0=\count129
+\blx@notetype=\count130
+\blx@parenlevel@text=\count131
+\blx@parenlevel@foot=\count132
+\blx@sectionciteorder@0=\count133
 \labelnumberwidth=\skip44
 \labelalphawidth=\skip45
 \biblabelsep=\skip46
@@ -522,9 +544,9 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 \bibhang=\skip51
 \blx@bcfin=\read1
 \blx@bcfout=\write4
-\c@mincomprange=\count131
-\c@maxcomprange=\count132
-\c@mincompwidth=\count133
+\c@mincomprange=\count134
+\c@maxcomprange=\count135
+\c@mincompwidth=\count136
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -533,74 +555,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'alphabetic.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count134
-\c@savedafterword=\count135
-\c@annotator=\count136
-\c@savedannotator=\count137
-\c@author=\count138
-\c@savedauthor=\count139
-\c@bookauthor=\count140
-\c@savedbookauthor=\count141
-\c@commentator=\count142
-\c@savedcommentator=\count143
-\c@editor=\count144
-\c@savededitor=\count145
-\c@editora=\count146
-\c@savededitora=\count147
-\c@editorb=\count148
-\c@savededitorb=\count149
-\c@editorc=\count150
-\c@savededitorc=\count151
-\c@foreword=\count152
-\c@savedforeword=\count153
-\c@holder=\count154
-\c@savedholder=\count155
-\c@introduction=\count156
-\c@savedintroduction=\count157
-\c@namea=\count158
-\c@savednamea=\count159
-\c@nameb=\count160
-\c@savednameb=\count161
-\c@namec=\count162
-\c@savednamec=\count163
-\c@translator=\count164
-\c@savedtranslator=\count165
-\c@shortauthor=\count166
-\c@savedshortauthor=\count167
-\c@shorteditor=\count168
-\c@savedshorteditor=\count169
-\c@labelname=\count170
-\c@savedlabelname=\count171
-\c@institution=\count172
-\c@savedinstitution=\count173
-\c@lista=\count174
-\c@savedlista=\count175
-\c@listb=\count176
-\c@savedlistb=\count177
-\c@listc=\count178
-\c@savedlistc=\count179
-\c@listd=\count180
-\c@savedlistd=\count181
-\c@liste=\count182
-\c@savedliste=\count183
-\c@listf=\count184
-\c@savedlistf=\count185
-\c@location=\count186
-\c@savedlocation=\count187
-\c@organization=\count188
-\c@savedorganization=\count189
-\c@origlocation=\count190
-\c@savedoriglocation=\count191
-\c@origpublisher=\count192
-\c@savedorigpublisher=\count193
-\c@publisher=\count194
-\c@savedpublisher=\count195
-\c@language=\count196
-\c@savedlanguage=\count197
-\c@origlanguage=\count198
-\c@savedoriglanguage=\count199
-\c@pageref=\count266
-\c@savedpageref=\count267
+\c@afterword=\count137
+\c@savedafterword=\count138
+\c@annotator=\count139
+\c@savedannotator=\count140
+\c@author=\count141
+\c@savedauthor=\count142
+\c@bookauthor=\count143
+\c@savedbookauthor=\count144
+\c@commentator=\count145
+\c@savedcommentator=\count146
+\c@editor=\count147
+\c@savededitor=\count148
+\c@editora=\count149
+\c@savededitora=\count150
+\c@editorb=\count151
+\c@savededitorb=\count152
+\c@editorc=\count153
+\c@savededitorc=\count154
+\c@foreword=\count155
+\c@savedforeword=\count156
+\c@holder=\count157
+\c@savedholder=\count158
+\c@introduction=\count159
+\c@savedintroduction=\count160
+\c@namea=\count161
+\c@savednamea=\count162
+\c@nameb=\count163
+\c@savednameb=\count164
+\c@namec=\count165
+\c@savednamec=\count166
+\c@translator=\count167
+\c@savedtranslator=\count168
+\c@shortauthor=\count169
+\c@savedshortauthor=\count170
+\c@shorteditor=\count171
+\c@savedshorteditor=\count172
+\c@labelname=\count173
+\c@savedlabelname=\count174
+\c@institution=\count175
+\c@savedinstitution=\count176
+\c@lista=\count177
+\c@savedlista=\count178
+\c@listb=\count179
+\c@savedlistb=\count180
+\c@listc=\count181
+\c@savedlistc=\count182
+\c@listd=\count183
+\c@savedlistd=\count184
+\c@liste=\count185
+\c@savedliste=\count186
+\c@listf=\count187
+\c@savedlistf=\count188
+\c@location=\count189
+\c@savedlocation=\count190
+\c@organization=\count191
+\c@savedorganization=\count192
+\c@origlocation=\count193
+\c@savedoriglocation=\count194
+\c@origpublisher=\count195
+\c@savedorigpublisher=\count196
+\c@publisher=\count197
+\c@savedpublisher=\count198
+\c@language=\count199
+\c@savedlanguage=\count266
+\c@origlanguage=\count267
+\c@savedoriglanguage=\count268
+\c@pageref=\count269
+\c@savedpageref=\count270
 \shorthandwidth=\skip52
 \shortjournalwidth=\skip53
 \shortserieswidth=\skip54
@@ -618,13 +640,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2017/12/19 v3.10 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count268
-\c@textcitetotal=\count269
-\c@textcitemaxnames=\count270
-\c@biburlnumpenalty=\count271
-\c@biburlucpenalty=\count272
-\c@biburllcpenalty=\count273
-\c@smartand=\count274
+\c@textcitecount=\count271
+\c@textcitetotal=\count272
+\c@textcitemaxnames=\count273
+\c@biburlnumpenalty=\count274
+\c@biburlucpenalty=\count275
+\c@biburllcpenalty=\count276
+\c@smartand=\count277
 )
 Package biblatex Info: Trying to load bibliography style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.bbx' found.
@@ -636,8 +658,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2017/12/19 v3.10 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count275
-\c@bbx:relatedtotal=\count276
+\c@bbx:relatedcount=\count278
+\c@bbx:relatedtotal=\count279
 ))
 Package biblatex Info: Trying to load citation style 'alphabetic'...
 Package biblatex Info: ... file 'alphabetic.cbx' found.
@@ -667,25 +689,60 @@ Package biblatex Info: ... file 'english.lbx' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 )
-\@quotelevel=\count277
-\@quotereset=\count278
+\@quotelevel=\count280
+\@quotereset=\count281
  (./doc.aux)
 \openout1 = `doc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: legalpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 867.24002pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=1011.78pt
+* \textwidth=469.75502pt
+* \textheight=867.24002pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -693,48 +750,54 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'doc.bbl' found.
-
 (./doc.bbl)
-Package biblatex Info: Reference section=0 on input line 20.
-Package biblatex Info: Reference segment=0 on input line 20.
-LaTeX Font Info:    Try loading font information for OML+plm on input line 23.
+Package biblatex Info: Reference section=0 on input line 23.
+Package biblatex Info: Reference segment=0 on input line 23.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 26.
  (/usr/share/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 23.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 26.
 
 
 (/usr/share/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 23.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 26.
 
 
 (/usr/share/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <14.4> on input line 23.
+(Font)              <14.4> on input line 26.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 23.
+(Font)              <10> on input line 26.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 23.
+(Font)              <7> on input line 26.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./doc.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./doc.toc
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `plex10' loaded for size
+(Font)              <6> on input line 7.
+)
 \tf@toc=\write5
 \openout5 = `doc.toc'.
 
  [1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 36.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 39.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 39.
  [2
 
 ]
@@ -759,26 +822,26 @@ Package logreq Info: Writing requests to 'doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 8296 strings out of 492982
- 142227 string characters out of 6138579
- 541623 words of memory out of 5000000
- 11788 multiletter control sequences out of 15000+600000
- 15141 words of font info for 36 fonts, out of 8000000 for 9000
+ 8795 strings out of 492982
+ 149407 string characters out of 6138579
+ 558511 words of memory out of 5000000
+ 12268 multiletter control sequences out of 15000+600000
+ 19656 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,7n,45p,851b,1262s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,7n,45p,827b,1262s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/font
 s/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/
-cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc12
-00.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/
-fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
-ti1200.pfb>
-Output written on doc.pdf (8 pages, 147087 bytes).
+cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx24
+88.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+rm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on doc.pdf (8 pages, 175868 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
