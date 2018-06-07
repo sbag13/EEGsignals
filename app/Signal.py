@@ -3,7 +3,6 @@ from Epoch import Epoch
 
 class Signal():
     def __init__(self, label, samples, frequency, attr=None):
-        # can add personal info
         self.label = label
         self.data = np.asarray(samples)
         self.frequency = frequency

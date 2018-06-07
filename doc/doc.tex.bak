@@ -44,9 +44,9 @@
 
     \chapter*{Wstęp}
     \addcontentsline{toc}{chapter}{Wstęp}
-        Celem projektu było stworzenie programistycznej metody automatycznego rozpoznawania faz snu człowieka na podstawie zapisu sygnału elektroencefalograficznego (\textit{EEG}). Częścią zadania nie było opracowanie metody gromadzenia zapisów ani wykonywanie pomiarów sygnału. Zdecydowano się skorzystać z publicznej bazy danych, udostępniającej pliki w formacie \textit{EDF} (European Data Format). 
+        Celem projektu było stworzenie programistycznej metody automatycznego rozpoznawania faz snu człowieka na podstawie zapisu sygnału elektroencefalograficznego (\textit{EEG}). Częścią zadania nie było opracowanie metody gromadzenia zapisów ani wykonywanie pomiarów sygnału. Zdecydowano się skorzystać z bazy danych dostępnej pod adresem \url{https://www.physionet.org/physiobank/database/sleep-edfx/}, udostępniającej pliki w formacie \textit{EDF} (European Data Format). 
 
-        Z uwagi na brak wiedzy dziedzinowej, przy klasyfikacji zdecydowano się na zastosowanie sztucznej sieci neuronowej zamiast analitycznego podejścia do problemu. Przy implementacji sieci skorzystano z otwarto-źródłowej biblioteki programistycznej \textit{TensorFlow}. Wykorzystano wersję biblioteki wykorzystującą technologię \textit{CUDA}, dzięki czemu skrócono czas uczenia sieci poprzez przeniesienie wielu równoległych obliczeń na kartę graficzną.
+        Z uwagi na brak wiedzy dziedzinowej, przy klasyfikacji zdecydowano się na zastosowanie sztucznej sieci neuronowej zamiast analitycznego podejścia do problemu. Przy implementacji sieci skorzystano z otwartoźródłowej biblioteki programistycznej \textit{TensorFlow}. Wykorzystano wersję biblioteki wykorzystującą technologię \textit{CUDA}, dzięki czemu skrócono czas uczenia sieci poprzez przeniesienie wielu równoległych obliczeń na kartę graficzną.
 
         Do wykonania skryptów wczytujących i przygotowujących dane, oraz do uczenia maszynowego został użyty język programowania \textit{Python}. Szczególnie przydatne okazały się pakiety:
         \begin{itemize}
@@ -56,10 +56,10 @@
             \item TensorFlow - interfejs biblioteki do języka \textit{Python}.
         \end{itemize}
 
-        Wszystkie skrypty, plik z modelem sieci oraz dane otrzymane z sygnałów można znaleźć w publicznym repozytorium pod adresem \url{https://github.com/sbag13/EEG_sleep_stages_recognition}.
+        Wszystkie skrypty, które powstały w ramach projektu można znaleźć w publicznym repozytorium pod adresem \url{www}. % TODO repo
 
     \chapter{Pozyskanie danych}
-        Użyte w projekcie dane zostały pobrane ze strony internetowej \url{https://www.physionet.org/physiobank/database/sleep-edfx/}. Wykorzystane zapisy uzyskano w latach 1987-1991 podczas badań nad wpływem wieku na sen. Rekordy pochodzą od osób rasy kaukaskiej w wieku od 25 do 101 lat , które nie przyjmowały żadnych leków związanych ze snem. Sygnały były próbkowane z częstotliwością 100 Hz, a ich klasyfikacja została przeprowadzona przy pomocy reguł Rechtschaffen'a i Kales'a na bazie trzydziestosekundowych segmentów z kanałów \textit{Fpz-Cz} i \textit{Pz-Oz}. Każdy z segmentów został sklasyfikowany jako: przebudzony, nie-REM1, nie-REM2, nie-REM3, REM, niewielka aktywność, poruszenie lub nieokreślony.
+        Użyte w projekcie dane zostały pobrane ze strony internetowej \cite{}. Wykorzystane zapisy uzyskano w latach 1987-1991 podczas badań nad wpływem wieku na sen. Rekordy pochodzą od osób rasy kaukaskiej w wieku od 25 do 101 lat , które nie przyjmowały żadnych leków związanych ze snem. Sygnały były próbkowane z częstotliwością 100 Hz, a ich klasyfikacja została przeprowadzona przy pomocy reguł Rechtschaffen'a i Kales'a na bazie trzydziestosekundowych segmentów z kanałów \textit{Fpz-Cz} i \textit{Pz-Oz}. Każdy z segmentów został sklasyfikowany jako: przebudzony, nie-REM1, nie-REM2, nie-REM3, REM, niewielka aktywność, poruszenie lub nieokreślony.
         W tym projekcie został użyty jednak tylko kanał \textit{Pz-Oz}, a rozpoznawanymi fazami były: przebudzony, nie-REM1 + REM, nie-REM2, nie-REM3 + niewielka aktywność.
         Dokładny opis przebiegu badań znajduje się stronie internetowej bazy danych.
         
@@ -70,27 +70,27 @@
         \section{Wczytywanie danych z pliku EDF}
             W module \textit{EdfFile.py} została stworzona klasa \textit{EdfFile}, która jako argument konstruktora przyjmuje ścieżkę do pliku z elektroencefalogramem oraz ścieżkę do pliku, w którym znajdują się adnotacje.
             
-            W funkcji \textit{\_\_init\_\_} zostało wykorzystanych kilka funkcjonalności z biblioteki PyEDFlib. Funkcja \textit{EdfReader} służy do odczytania danych z pliku i zwraca obiekt go reprezentujący, przez który mamy dostęp do właściwości zapisu takich jak:
+            W funkcji \textit{\_\_init\_\_} zostało wykorzystanych kilka funkcjonalności z biblioteki PyEDFlib. Funkcja \textit{EdfReader} służy do odczytania danych z pliku i zwraca obiekt go reprezentujący, przez który mamy dostęp do właściwości zapisu takich jak między innymi:
             \begin{itemize}
                 \item liczba sygnałów (kanałów) w pliku,
                 \item lista etykiet sygnałów,
-                \item wartości napięcia dla sczytanych próbek,
+                \item wartości napięcia dla zczytanych próbek,
                 \item lista częstotliwości sygnałów,
                 \item lista adnotacji do faz snu,
                 \item lista czasów przejść między fazami snu.                
             \end{itemize}
             W tym miejscu jest tworzona także kolekcja obiektów typu \textit{Signal}, które są "opakowaniem" na sygnały obecne w pliku.
 
-            W klasie \textit{EdfFile} znajdują się także dwie funkcje odpowiedzialne za przygotowanie danych dla sieci neuronowej. Są to \textit{createOutput} oraz \textit{createInput}. Zwracają one dane odczytane z pliku w postaci macierzy, które następnie w skrypcie \textit{prepare.py} są agregowane. Tutaj także ma miejsce kontrola poprawności danych i usunięcie błędnych próbek, aby nie umieszczać ich na wejściu sieci.
+            W klasie \textit{EdfFile} znajdują się także dwie funkcje odpowiedzialne za przygotowanie danych dla sieci neuronowej. Są to \textit{createOutput} oraz \textit{createInput}. Zwracają one dane odczytane z pliku w postaci macierzy, które następnie w skrypcie \textit{prepare.py} są agregowane. Tutaj także, ma miejsce kontrola poprawności danych i usunięcie błędnych próbek, aby nie umieszczać ich na wejściu sieci.
 
         \section{Przetwarzanie wstępne}
             Klasa \textit{Signal} posiada tylko jedną metodę. Jest nią \textit{getEpochs}, która dzieli sygnał na trzydziestosekundowe segmenty, tworzy odpowiadające im obiekty typu \textit{Epoch} i zwraca je w liście.
             Następnie, w skrypcie \textit{prepare.py} otrzymane w ten sposób obiekty są przekazywane do metody \textit{createOutput} i \textit{createInput} z klasy \textit{EdfFile}. Na każdym segmencie wywoływana jest metoda \textit{extractFeatures}, której zadaniem jest wyekstrahowanie dwunastu cech, które posłużą jako pobudzenia wejść sieci neuronowej.
 
     \chapter{Wyekstrahowanie cech z sygnału EEG}
-        Wszystkie cechy zostały pozyskane przy użyciu Dyskretnej Transformaty Falkowej (DWPT - Discrete Wavelet Transform). Jest to przekształcenie podobne do Transformaty Fouriera. Główna różnica polega na użyciu innego jądra przekształcenia. W Transformacie Fouriera jądrem jest funkcja sinusoidalna, która w dziedzinie czasu jest nieograniczona, a w dziedzinie częstotliwości jest punktem. To zapewnia jej idealną rozdzielczość w dziedzinie częstotliwości natomiast czyni ją nieprzydatną w kontekście analizy czasowej. Ponieważ nośniki falek jak i ich widm nie są punktowe, analiza przy pomocy Transformaty Falkowej nie posiada idealnej rozdzielczości, ani w dziedzinie czasu ani w dziedzinie częstotliwości (następstwo zasady nieoznaczoności). Transformata Falkowa służy więc do analizy sygnałów niestacjonarnych, ponieważ dostarcza informacji o czasowo-częstotliwościowych zmianach sygnałów.
+        Wszystkie cechy zostały pozyskane przy użyciu Dyskretnej Transformaty Falkowej (DWPT - Discrete Wavelet Transform). Jest to przekształcenie podobne do transformaty Fouriera. Główna różnica polega na użyciu innego jądra przekształcenia. W transformacie Fouriera jądrem jest funkcja sinusoidalna, która w dziedzinie czasu jest nieograniczona, a w dziedzinie częstotliwości jest punktem. To zapewnia jej idealną rozdzielczość w dziedzinie częstotliwości natomiast czyni ją nieprzydatną w kontekście analizy czasowej. Ponieważ nośniki falek jak i ich widm nie są punktowe, analiza przy pomocy transformaty falkowej nie posiada idealnej rozdzielczości, ani w dziedzinie czasu ani w dziedzinie częstotliwości (następstwo zasady nieoznaczoności). transformata falkowa służy więc do analizy sygnałów niestacjonarnych, ponieważ dostarcza informacji o czasowo-częstotliwościowych zmianach sygnałów.
 
-        W projekcie została użyta Dyskretna Transformata Pakietów Falkowych (DWPT - Discrete wavelet packet transform), która jest rozszerzeniem Transformaty Falkowej. Dzieli ona oryginalny sygnał na dwie części: wysokie i niskie częstotliwości. Transformata Falkowa rozkłada tylko niskie częstotliwości dokładnie, a DWPT to jej uogólniona wersja, która również rozkłada pasma wysokiej częstotliwości i prowadzi do powstania kompletnego drzewa pakietów falkowych (rysunek \ref{fig:tree}).
+        W projekcie została użyta Dyskretna transformata pakietów falkowych (DWPT - Discrete wavelet packet transform), która jest rozszerzeniem Transformaty Falkowej. Dzieli ona oryginalny sygnał na dwie części: wysokie i niskie częstotliwości. Transformata falkowa rozkłada tylko niskie częstotliwości dokładnie, a DWPT to jej uogólniona wersja, która również rozkłada pasma wysokiej częstotliwości i prowadzi do powstania kompletnego drzewa pakietów falkowych (rysunek \ref{fig:tree}).
 
         W tym przypadku została użyta DWPT z falką Daubechies rzędu pierwszego do głębokości poziomu siódmego. Skorzystano z gotowej funkcjonalności biblioteki PyWavelets - WaveletPacket. 
             
@@ -129,9 +129,9 @@
         Struktura stworzonej sieci neuronowej składała się z dwunastu wejść, jednej warstwy ukrytej złożonej z ośmiu neuronów oraz czterech wyjść. Jako że każda para neuronów z sąsiednich dla siebie warstw była ze sobą połączona, aby połączyć je w jeden komponent potrzebne były dwie synapsy (macierze wag i polaryzacji) o wymiarach $12 x 8$ oraz $8 x 4$. Podczas trenowania użyto danych zebranych od dwudziestu siedmiu osób, co dało w sumie 73948 trzydiestosekundowych segmentów jako pojedynczych przypadków treningowych. \newline
 
         \section{TensorFlow}
-            Do implementacji sieci użyto biblioteki \textit{TensorFlow}. Jest to oprogramowanie typu "open source", zaprojektowane w celu umożliwienia wydajnego obliczania wykresów przepływu danych. Jest szczególnie przydatne w przypadku zadań wymagających "uczenia maszyn". Algorytmy zostały zaprojektowane do wykonywania na pojedynczym lub wielu procesorach i procesorach graficznych, dzięki czemu jest dobrym rozwiązaniem dla złożonych zadań. Po określeniu zależności między zdefiniowanymi zmiennymi, biblioteka potrafi określić, które obliczenia mogą być prowadzone równolegle. Jest to kluczowe w kontekście sztucznych sieci neuronowych, gdzie wiele kalkulacji może być prowadzonych jednocześnie.\newline
+            Do implementacji sieci użyto biblioteki \textit{TensorFlow}. Jest to oprogramowanie typu "open source", zaprojektowane w celu umożliwienia wydajnego obliczania wykresów przepływu danych, jest szczególnie przydatne w przypadku zadań wymagających "uczenia maszyn". Został zaprojektowany do wykonywania na pojedynczym lub wielu procesorach i procesorach graficznych, dzięki czemu jest dobrym rozwiązaniem dla złożonych zadań. Po określeniu zależności między zdefiniowanymi zmiennymi, biblioteka potrafi określić, które obliczenia mogą być prowadzone równolegle. Jest to kluczowe w kontekście sztucznych sieci neuronowych, gdzie wiele kalkulacji może być prowadzonych jednocześnie.\newline
              
-            Skorzystano między innymi z następujących funkcjonalności: 
+            Skorzystano między inymi z następujących funkcjonalności: 
             \begin{itemize}
                 \item tworzenie symboli zastępczych na zmienne (\textit{ang. placeholder}), które potem wypełniono danymi,
                 \item tworzenie zmiennych (głównie użyto tablic na typ float64),
@@ -153,9 +153,9 @@
     \chapter*{Podsumowanie}
     \addcontentsline{toc}{chapter}{Podsumowanie}
 
-            Biorąc pod uwagę ograniczone możliwości czasowe i sprzętowe uzyskano zaskakująco dobre wyniki przy tak małym skomplikowaniu sieci oraz niewielkiej ilości uruchomień sesji. Oczywiście nie są to wyniki, które mogły by być akceptowalne w medycynie, niemniej jednak przy dalszych eksperymentach ze strukturą sieci oraz z innym podejściem do ekstrahowania cech sygnału, można by skuteczność znacząco poprawić. Warto wspomnieć także o bibliotece \textit{TensorFlow}, która jest niezmiernie łatwa w opanowaniu, posiada szeroką gamę gotowych rozwiązań, algorytmów, ułatwień i daje znaczne możliwości przy eksperymentach tego typu.
+            Biorąc pod uwagę ograniczone możliwości czasowe i sprzętowe uzyskano zaskakująco dobre wyniki przy tak małym skomplikowaniu sieci oraz niewielkiej ilości uruchomień sesji. Oczywiście nie są to wyniki, które mogły by być akcpetowalne w medycynie, niemniej jednak przy dalszych eksperymentach ze strukturą sieci oraz z innym podejściem do ekstrahowania cech sygnału, można by skuteczność znacząco poprawić. Warto wspomnieć także o bibliotece \textit{TensorFlow}, która jest niezmiernie łatwa w opanowaniu, posiada szeroką gamę gotowych rozwiązań, algorytmów, ulatwień i daje znaczne możliwości przy eksperymentach tego typu.
             
-            Pewnym niedopracowaniem jest także fakt, że rozpoznawane są tylko cztery fazy aktywności, podczas gdy eksperci są w stanie zidentyfikować ich znacznie więcej. Mimo to, że jakość osiągniętego rezultatu może budzić zastrzeżenia, cel projektu został osiągnięty.
+            Pewnym niedopracowaniem jest także fakt, że rozpoznawane są tylko cztery fazy aktywności, podczas gdy eksperci są w stanie zidentyfikować ich znacznie więcej. Mimo to, że jakość osiągniętego rezultatu może budzić zasztrzeżenia, cel projektu został osiągnięty.
 
     % \printbibliography[heading=bibintoc, title={Bibliografia}]
 

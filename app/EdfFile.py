@@ -24,7 +24,6 @@ stageList = {0 : zero,
 
 class EdfFile():
     def __init__(self, path, annotations_path):
-        # check whether the .edf file or not
         self.file = pyedflib.EdfReader(path)
         self.number_of_signal = self.file.signals_in_file
         self.signals_list = []

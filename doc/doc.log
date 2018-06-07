@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.30)  6 JUN 2018 00:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.5.30)  8 JUN 2018 00:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -849,11 +849,6 @@ LaTeX Font Info:    External font `plex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 47.
-
-(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 53.
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
@@ -861,6 +856,16 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 53.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 59.
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (24.03052pt too wide) in paragraph at lines 59--60
+\T1/cmr/m/n/12 blicz-nym re-po-zy-to-rium pod ad-re-sem $\T1/cmtt/m/n/12 https 
+: / / github . com / sbag13 / EEG _ sleep _ stages _ recognition$\T1/cmr/m/n/12
+ . 
+ []
 
 Rozdzia\PlPrIeC {\l } 1.
 [1]
@@ -869,16 +874,26 @@ Rozdzia\PlPrIeC {\l } 2.
 File: tree.png Graphic file (type png)
 <use tree.png>
 Package pdftex.def Info: tree.png  used on input line 99.
-(pdftex.def)             Requested size: 498.66258pt x 244.4927pt.
+(pdftex.def)             Requested size: 398.93158pt x 195.59787pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2]
+[2] [3 <./tree.png>]
 Rozdzia\PlPrIeC {\l } 3.
-[3 <./tree.png>] [4]
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+[4] [5]
 Dodatek A.
 Dodatek B.
-[5
+[6
 
 ] (./doc.aux)
 Package logreq Info: Writing requests to 'doc.run.xml'.
@@ -886,26 +901,33 @@ Package logreq Info: Writing requests to 'doc.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 9686 strings out of 492982
- 161958 string characters out of 6138579
+ 9508 strings out of 492982
+ 158478 string characters out of 6138579
  573816 words of memory out of 5000000
- 13117 multiletter control sequences out of 15000+600000
+ 12939 multiletter control sequences out of 15000+600000
  19294 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,7n,31p,989b,1199s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/font
-s/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/
-cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx24
-88.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/
-fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
-ti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on doc.pdf (6 pages, 251477 bytes).
+ 35i,7n,31p,989b,742s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texmf-dist/fon
+ts/enc/dvips/pl/plme.enc}{/usr/share/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/u
+sr/share/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-dist/fonts/en
+c/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plex10.pfb></us
+r/share/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texmf-dist/font
+s/type1/public/pl/plmi8.pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr12.
+pfb></usr/share/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texmf-dis
+t/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm
+-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728
+.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
+2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/
+share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on doc.pdf (7 pages, 284182 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

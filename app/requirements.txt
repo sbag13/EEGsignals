@@ -2,3 +2,5 @@ pyEDFlib
 numpy
 wfdb
 PyWavelets
+glob
+statistics

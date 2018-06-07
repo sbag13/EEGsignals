@@ -1,6 +1,5 @@
 import numpy as np
 import EdfFile
-import NN
 import Signal
 import glob
 
@@ -62,8 +61,3 @@ def loadTrainingData():
 
 def loadPredictingData():
     return loadData("./predicting_data")
-
-# TODO 
-# może serializowanie extracted epochs
-# zapisywanie stanów pośrednich
-# trening!!!

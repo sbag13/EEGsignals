@@ -16,10 +16,14 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Klasyfikacja faz snu w oparciu o sie\IeC {\'c} neuronow\IeC {\k a}}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Podsumowanie}{4}
+\contentsline {section}{\numberline {3.1}TensorFlow}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Dodatki}{5}
+\contentsline {section}{\numberline {3.2}Uczenie maszynowe i wyniki}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Pliki wykorzystane do treningu}{5}
+\contentsline {chapter}{Podsumowanie}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Pliki wykorzystane do testowania}{5}
+\contentsline {chapter}{Dodatki}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Pliki wykorzystane do treningu}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Pliki wykorzystane do testowania}{6}
